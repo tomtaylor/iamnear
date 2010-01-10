@@ -57,7 +57,7 @@ Rails::Initializer.run do |config|
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
   
-  config.gem "mojodna-fireeagle", :lib => 'fireeagle', :source => 'http://gems.github.com'
-  config.gem "haml"
+  config.gem "fireeagle", :source => 'http://gemcutter.org'
+  config.gem "haml", :source => 'http://gemcutter.org'
   
 end
