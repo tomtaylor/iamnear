@@ -58,6 +58,7 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
   
   config.gem "fireeagle", :source => 'http://gemcutter.org'
+  config.gem "oauth", :source => 'http://gemcutter.org'
   config.gem "haml", :source => 'http://gemcutter.org'
   
 end
