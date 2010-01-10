@@ -60,5 +60,6 @@ Rails::Initializer.run do |config|
   config.gem "fireeagle", :source => 'http://gemcutter.org'
   config.gem "oauth", :source => 'http://gemcutter.org'
   config.gem "haml", :source => 'http://gemcutter.org'
+  config.gem "fastercsv", :source => 'http://gemcutter.org'
   
 end
