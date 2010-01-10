@@ -1,10 +1,8 @@
 set :application, "iamnear"
-set :deploy_to, "/opt/capistrano/#{application}"
+set :deploy_to, "/srv/rails/#{application}"
 
 set :scm, :git
-set :repository, "/opt/git/repositories/iamnear.git"
-set :local_repository, "#{File.dirname(__FILE__)}/../"
-# set :repository, "ssh://git@localhost:2222:iamnear.git"
+set :repository, "git@github.com:tomtaylor/iamnear.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 
@@ -12,8 +10,8 @@ set :user, "rails"
 set :group, "rails"
 set :use_sudo, false
 
-set :location, "kusanagi.tomtaylor.co.uk"
-set :port, "22"
+set :location, "glu"
+set :port, "2222"
 set :ssh_options, { :forward_agent => true }
 
 role :app, location
@@ -48,21 +46,3 @@ namespace :deploy do
   end
   
 end
-
-# namespace :deploy do
-#   %w(start stop restart).each do |action| 
-#      desc "#{action} the Thin processes"  
-#      task action.to_sym do
-#        find_and_execute_task("thin:#{action}")
-#     end
-#   end 
-# end
-# 
-# namespace :thin do  
-#   %w(start stop restart).each do |action| 
-#   desc "#{action} the app's Thin Cluster"  
-#     task action.to_sym, :roles => :app do  
-#       run "thin #{action} -c #{deploy_to}/current -C #{deploy_to}/shared/config/thin.yml" 
-#     end
-#   end
-# end
