@@ -1,0 +1,121 @@
+body {
+	padding: 0;
+/*	padding-bottom: 1px;*/
+	margin: 0;
+	font-family: sans-serif;
+	text-align: center;
+	font-size: 12pt;
+}
+
+#container {
+	margin: 0 auto;
+	width: 240px;
+	text-align: left;
+}
+
+#header {
+	background-color: black;
+	color: white;
+	width: 100%;
+/*	width: 240px;*/
+	margin: 0 auto;
+}
+
+h1 {
+	text-align: center;
+	margin: 0;
+	padding: 10px;
+/*	display: block;*/
+	font-size: 1.2em;
+}
+
+#map {
+	margin: 10px 0;
+}
+
+#places ol {
+	list-style-type: upper-alpha;
+}
+
+#places h2 {
+	font-size: 1em;
+	margin-bottom: 0;
+}
+
+#places p {
+	margin: 0;
+}
+
+p.logout {
+	text-align: center;
+}
+
+p, ul {
+	font-size: 0.9em;
+	line-height: 1.3em;
+}
+
+p {
+	padding: 0 5px;
+}
+
+ol li {
+  clear: both;
+  margin-top: 1em;
+}
+
+li p {
+	padding: 0;
+}
+
+abbr {
+	border-bottom: none;
+}
+
+form p {
+	display: inline;
+}
+
+form p.field input {
+/*	width: 80px;*/
+	width: 140px;
+/*	font-weight: bold;*/
+}
+
+form p.field label {
+	display: none;
+}
+
+form p.submit input {
+/*	float: right;*/
+	width: 60px;
+/*	font-weight: bold;*/
+}
+
+p.map-link {
+	font-size: 0.8em;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+}
+
+span.cleardiv {
+  display: block;
+  clear: both;
+}
+
+p.error {
+  margin: 0;
+  background-color: darkred;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+p.notice {
+  margin: 0;
+  background-color: darkgreen;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}

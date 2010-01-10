@@ -1,0 +1,7 @@
+#places ol {
+	list-style-type: upper-alpha;
+}
+
+form p.field label {
+	display: none;
+}

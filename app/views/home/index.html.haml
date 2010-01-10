@@ -1,0 +1,33 @@
+#header
+  %h1 i am near.net
+
+#container
+
+  %p It's really simple. You stick in your location, and we tell you stuff that's near it. 
+  
+  %p All of the data is UK only at the moment. We also support <a href="http://www.fireeagle.com">Fire Eagle</a>, if that floats your boat.
+
+  %p What are you looking for?
+  
+  %ul
+    - fireeagle_status = true if has_fireeagle_credentials?
+    %li= link_to 'pubs', root_url(:subdomain => 'pubs', :fireeagle => fireeagle_status)
+    %li
+      = link_to 'ATMs', root_url(:subdomain => 'atms', :fireeagle => fireeagle_status)
+      (cash points)
+    %li= link_to 'hospitals', root_url(:subdomain => 'hospitals', :fireeagle => fireeagle_status)
+    %li
+      = link_to 'post offices', root_url(:subdomain => 'postoffices', :fireeagle => fireeagle_status)
+    %li= link_to 'cats', root_url(:subdomain => 'cats', :fireeagle_status => fireeagle_status)
+    %li= link_to 'megaliths', root_url(:subdomain => 'megaliths', :fireeagle => fireeagle_status)
+    %li 
+      = link_to 'rocket strikes', root_url(:subdomain => 'rocketstrikes', :fireeagle => fireeagle_status)
+      from world war 2
+    %li
+      = link_to 'books', root_url(:subdomain => 'books', :fireeagle => fireeagle_status)
+      (london only)
+    %li
+      = link_to 'postboxes', root_url(:subdomain => 'postboxes', :fireeagle => fireeagle_status)
+      (new!)
+    
+  %p <a href="http://www.tomtaylor.co.uk">Tom Taylor</a> made it, out of sticky back plastic and PVC glue, with inspiration from <a href="http://simonwillison.net/2008/Mar/22/wikinear/">Simon Willison's wikinear.com</a>.

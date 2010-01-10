@@ -1,0 +1,27 @@
+!!! Strict
+%html{html_attrs('en-gb')}
+  %head
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
+    %meta{ "name" => "viewport", "content" => "width=260"}
+    %title
+      = "#{yield :title}i am near"
+    = stylesheet_link_tag 'screen'
+    <link media="only screen and (max-device-width: 480px)" href="/stylesheets/iphone.css" type="text/css" rel="stylesheet" />
+  %body
+    - if flash[:warning]
+      %p.error= flash[:warning]
+    - if flash[:notice]
+      %p.notice= flash[:notice]
+        
+    = yield
+    
+    - if RAILS_ENV == 'production'
+      <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      </script>
+      <script type="text/javascript">
+      var pageTracker = _gat._getTracker("UA-116473-2");
+      pageTracker._initData();
+      pageTracker._trackPageview();
+      </script>

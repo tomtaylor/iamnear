@@ -1,0 +1,7 @@
+%li
+  %h2
+    %abbr{:class => 'geo', :title => "#{place.latitude};#{place.longitude}"}= place.name
+  - if place.description
+    %p= place.description
+  %span.cleardiv
+    <!-- IE -->

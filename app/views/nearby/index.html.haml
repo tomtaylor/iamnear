@@ -1,0 +1,40 @@
+- content_for :title do
+  = @friendly_name
+  
+#header
+  %h1= "five #{@friendly_name} near #{@location_name}"
+  
+#container
+  #map
+    = image_tag map_url_from_places(@latlon, @places), :alt => 'Map', :size => "240x240"
+    - if iphone_user_agent?
+      %p.map-link= link_to "view these (and more) in google maps &raquo", "maps:q=#{CGI.escape("http://#{subdomain}.iamnear.net/?format=kml&q=#{@latlon[0]},#{@latlon[1]}")}"
+    - else
+      %p.map-link= link_to "view these (and more) in google maps &raquo", "http://maps.google.com/maps?q=#{CGI.escape("http://#{subdomain}.iamnear.net/?format=kml&q=#{@latlon[0]},#{@latlon[1]}")}"
+      
+  = render :partial => "nearby/#{subdomain}/header"
+
+  #places
+    %ol
+      = render :partial => 'place', :collection => @places
+  
+  - if params[:fireeagle]
+    %p We're using your location from Fire Eagle. If it's wrong feel free to search by a postcode or address.
+  - else
+    %p 
+      Not the right location? It's often more accurate if specify your city or country.
+      %em (e.g. Oxford Street, London, UK)
+      
+  = render :partial => 'search_form'
+  
+  - unless params[:fireeagle]
+    %p= "Alternatively, if you know how, you could just #{link_to 'use your Fire Eagle location', :fireeagle => true}."
+
+  = render :partial => "nearby/#{subdomain}/footer"
+
+  %p 
+    = link_to '&laquo Go back to the home page', root_url(:subdomain => 'www')
+    - if has_fireeagle_credentials?
+      = " or "
+      = succeed " (you'll have to reauthenticate if you want to use it again later)." do
+        = link_to 'log out of Fire Eagle', :controller => 'oauth', :action => 'logout', :subdomain => 'www'

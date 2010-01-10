@@ -1,0 +1,12 @@
+- content_for :title do
+  = @friendly_name
+  
+#header
+  %h1= "five #{@friendly_name} near #{@location_name}"
+
+#container
+
+  %p= "Stick a postcode or address in below, and we'll show you #{@friendly_name} near it."
+  
+  %p= "Or, if you know how, #{link_to 'use your location from Fire Eagle', :fireeagle => true}."
+  = render :partial => 'search_form'

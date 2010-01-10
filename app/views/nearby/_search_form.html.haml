@@ -1,0 +1,7 @@
+- form_tag '/', {:method => :get} do
+  %p.field
+    %label Location:
+    = text_field_tag :q, params[:q]
+    
+  %p.submit
+    = submit_tag "find", { :name => nil }

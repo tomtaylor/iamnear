@@ -1,0 +1,6 @@
+%h1 Uh oh.
+
+%p 
+  Something went wrong. This usually occurs because you didn't let us read your location from Fire Eagle. If that's the case,
+  = link_to 'log out', :controller => 'oauth', :action => 'logout', :subdomain => 'www'
+  and reauthenticate.
