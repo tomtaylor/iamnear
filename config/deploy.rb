@@ -18,13 +18,18 @@ role :app, location
 role :web, location
 role :db,  location, :primary => true
 
-after "deploy:update_code", "symlink:db", "symlink:data"
+after "deploy:update_code", "symlink:db", "symlink:data", "symlink:keys"
 
 namespace :symlink do
   
   desc "Symlink database yaml" 
   task :db do
     run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml" 
+  end
+  
+  desc "Symlink keys yaml" 
+  task :keys do
+    run "ln -s #{shared_path}/config/keys.yml #{release_path}/config/keys.yml" 
   end
   
   desc "Symlink data"
